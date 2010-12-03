@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+
+
+	<string-array name="color_names">
+		<item>Red</item>
+		<item>Green</item>
+		<item>Blue</item>
+		<item>Purple</item>
+		<item>Cyan</item>
+		<item>Yellow</item>
+		<item>White</item>
+		<item>Black</item>
+	</string-array>
+	<string-array name="brightness">
+		<item>High</item>
+		<item>Medium</item>
+		<item>Low</item>
+	</string-array>
+	<string-array name="brightnes_values">
+		<item>ff</item>
+		<item>90</item>
+		<item>40</item>
+	</string-array>
+	<color name="Red">#ff0000</color>
+	<color name="Green">#00ff00</color>
+	<color name="Blue">#0000ff</color>
+	<color name="Purple">#ff00ff</color>
+	<color name="Cyan">#00ffff</color>
+	<color name="Yellow">#ffff00</color>
+	<color name="Black">#000000</color>
+	<color name="White">#ffffff</color>
+</resources>
