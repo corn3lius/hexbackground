@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+	android:title="@string/hex_settings" 
+	android:key="hexsettings">
+
+	<ListPreference 
+		android:key="bg_colors" 
+		android:title="@string/settings_title"
+		android:summary="@string/color_label" 
+		android:entries="@array/color_names" android:entryValues="@array/color_names"/>
+		
+<ListPreference android:entryValues="@array/brightnes_values" android:entries="@array/brightness" android:key="bg_bright" android:summary="@string/bright_label" android:title="@string/bright_title"></ListPreference>
+</PreferenceScreen>
