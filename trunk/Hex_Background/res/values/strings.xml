@@ -9,4 +9,5 @@
 <string name="bright_title">Brightness</string>
 <string name="bright_label">Adjust the brightness</string>
 
+<string name="description">A hexagon grid of color and light.</string>
 </resources>
