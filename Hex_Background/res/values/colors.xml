@@ -30,4 +30,26 @@
 	<color name="Yellow">#ffff00</color>
 	<color name="Black">#000000</color>
 	<color name="White">#ffffff</color>
+	<integer-array name="sprite_count">
+		<item>0</item>
+		<item>1</item>
+		<item>2</item>
+		<item>3</item>
+		<item>4</item>
+		<item>5</item>
+		<item>6</item>
+		<item>7</item>
+	</integer-array>
+	<string-array name="bg_types">
+		<item>noise</item>
+		<item>fog</item>
+		<item>waves</item>
+		<item>lines</item>
+	</string-array>
+	<string-array name="actions">
+		<item>explode</item>
+		<item>fade</item>
+		<item>erase</item>
+		<item>none</item>
+	</string-array>
 </resources>

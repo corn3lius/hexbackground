@@ -27,7 +27,9 @@ public class HexWallpaper extends WallpaperService {
 	public enum Direction {
 		UP, UPRIGHT, DOWNRIGHT, DOWN, DOWNLEFT, UPLEFT, NONE
 	}
-
+	public enum touchType {
+		NONE, EXPLODE, FADE, ERASE
+	}
 	/**
 	 * This class holds the status of the moving pieces on the screen
 	 * 
@@ -87,20 +89,30 @@ public class HexWallpaper extends WallpaperService {
 			SharedPreferences.OnSharedPreferenceChangeListener {
 
 		private final Paint mPaint = new Paint();
+		// touch points
 		private float mOffset;
 		private float mTouchX = -1;
 		private float mTouchY = -1;
-		private long mStartTime;
-		private long mTouchTime = 0;
 		private float mCenterX;
 		private float mCenterY;
+		private touchType touch_type;
+
+		// time values
+		private long mStartTime;
+		private long mTouchTime = 0;
+		// bitmaps
 		private Bitmap mHexTile;
 		private Bitmap mHexHole;
+		private Bitmap bg_texture;
+		// hex lights across the back
+		private final int HEXLIGHT_MAX = 7;
 		private int hexLightCount = 6;
-		private HexLight[] hexLight = new HexLight[hexLightCount];
+		private HexLight[] hexLight = new HexLight[HEXLIGHT_MAX];
+		// color attributes
 		private int[] aAlpha = new int[xCount * yCount];
 		private int bg_color = Color.CYAN;
 		private int bg_bright = 196;
+
 		private final Runnable mDraw = new Runnable() {
 			@Override
 			public void run() {
@@ -134,16 +146,42 @@ public class HexWallpaper extends WallpaperService {
 		public void onSharedPreferenceChanged(SharedPreferences prefs,
 				String key) {
 
-			Log.i("onPref", " get color ");
-			String color = prefs.getString("bg_colors", "Black");
-			int colorId = getResources().getIdentifier(color, "color",
-					getPackageName());
-			String bright = prefs.getString("bg_bright", "90");
-			bg_bright = Integer.parseInt(bright,16);
-			// combine     A                RGB
-			bg_color = (bg_bright << 24) + getResources().getColor(colorId);
-			
+			// Set the color
+			String rcolor = prefs.getString("color_red", "0");
+			int rgbcolor = Integer.parseInt(rcolor) << 16;
+			String gcolor = prefs.getString("color_green", "0");
+			rgbcolor += Integer.parseInt(gcolor) << 8;
+			String bcolor = prefs.getString("color_blue", "0");
+			rgbcolor += Integer.parseInt(bcolor);
+			// set the brightness
+			String bright = prefs.getString("color_alpha", "90");
+			bg_bright = Integer.parseInt(bright, 16);
+			// combine A RGB
+			bg_color = (bg_bright << 24) + rgbcolor;
 			Log.i("onPref", "color " + bg_color);
+
+			// set the background texture
+			String bg_type = prefs.getString("bg_type", "solid");
+			
+			Log.i("onPref", "color " + bg_type);
+
+			// set the touch action
+			String touch = prefs.getString("touch_actions", "fade");
+			if ( touch == "fade")
+				touch_type = touchType.FADE;
+			else if (touch == "explode")
+				touch_type = touchType.EXPLODE;
+			else if (touch == "erase")
+				touch_type = touchType.ERASE;
+			else 
+				touch_type = touchType.NONE;
+			Log.i("onPref", "touch type = " + touch);
+
+			// set the sprite Count
+			String count = prefs.getString("sprite_count", "4");
+			hexLightCount = Integer.parseInt(count);
+			Log.i("onPref", "count " + hexLightCount);
+
 		}
 
 		@Override
@@ -205,8 +243,9 @@ public class HexWallpaper extends WallpaperService {
 				float yStep, int xPixels, int yPixels) {
 			mOffset = xPixels;
 
-			Log.i("onOffset", xOffset + " - " + yOffset + " | " + xStep + " - "
-					+ yStep + " | " + xPixels + " - " + yPixels);
+			// Log.i("onOffset", xOffset + " - " + yOffset + " | " + xStep +
+			// " - "
+			// + yStep + " | " + xPixels + " - " + yPixels);
 			drawFrame();
 		}
 
@@ -325,7 +364,7 @@ public class HexWallpaper extends WallpaperService {
 				mTouchTime--;
 
 			if ((mStartTime + 5000) < SystemClock.elapsedRealtime()) {
-				Log.i("Timer", "Five seconds tick");
+				// Log.i("Timer", "Five seconds tick");
 				mStartTime = SystemClock.elapsedRealtime();
 			}
 		}
