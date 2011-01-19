@@ -1,13 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="hello">Hello</string>
-    <string name="app_name">Hex Field</string>
-<string name="display_name">Hex Field</string>
-<string name="hex_settings">Settings</string>
-<string name="settings_title">Color</string>
-<string name="color_label">Pick a color</string>
-<string name="bright_title">Brightness</string>
-<string name="bright_label">Adjust the brightness</string>
+	<string name="hello">Hello</string>
+	<string name="app_name">Hex Field</string>
+	<string name="display_name">Hex Field</string>
+	<string name="hex_settings">Settings</string>
+	<string name="settings_title">Color</string>
+	<string name="color_label">Pick a color</string>
+	<string name="bright_title">Brightness</string>
+	<string name="bright_label">Adjust the brightness</string>
 
-<string name="description">A hexagon grid of color and light.</string>
+	<string name="description">A hexagon grid of color and light.</string>
+	<string name="count_label">Number of Sprites</string>
+	<string name="count_title">Sprites</string>
+	<string name="touch_action">Touch Action</string>
+	<string name="touch_desc">This selects the type of action when you touch the
+		screen.</string>
+	<string name="bg_style">Background textures</string>
 </resources>

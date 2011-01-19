@@ -1,13 +1,36 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
-	android:title="@string/hex_settings" 
-	android:key="hexsettings">
+	android:title="@string/hex_settings" android:key="hexsettings">
+	<PreferenceCategory android:title="Color">
 
-	<ListPreference 
-		android:key="bg_colors" 
-		android:title="@string/settings_title"
-		android:summary="@string/color_label" 
-		android:entries="@array/color_names" android:entryValues="@array/color_names"/>
-		
-<ListPreference android:entryValues="@array/brightnes_values" android:entries="@array/brightness" android:key="bg_bright" android:summary="@string/bright_label" android:title="@string/bright_title"></ListPreference>
+		<EditTextPreference android:name="Red"
+			android:defaultValue="255" android:title="Red" android:key="color_red"
+			android:summary="0 - 255" />
+		<EditTextPreference android:name="Blue"
+			android:defaultValue="255" android:title="Blue" android:key="color_blue"
+			android:summary="0 - 255" />
+		<EditTextPreference android:name="Green"
+			android:defaultValue="255" android:title="Green" android:key="color_green"
+			android:summary="0 - 255" />
+		<EditTextPreference android:name="Alpha"
+			android:defaultValue="255" android:title="Alpha" android:key="color_alpha"
+			android:summary="0 - 255" />
+
+	</PreferenceCategory>
+
+	<PreferenceCategory android:title="Background">
+		<ListPreference android:entries="@array/bg_types"
+			android:key="bg_type" android:summary="@string/bg_style"
+			android:title="@string/bg_style" android:entryValues="@array/bg_types" />
+	</PreferenceCategory>
+
+	<PreferenceCategory android:title="Sprites">
+		<ListPreference android:entries="@array/sprite_count"
+			android:key="sprite_count" android:summary="@string/count_label"
+			android:title="@string/count_title" android:entryValues="@array/sprite_count" />
+
+		<ListPreference android:entryValues="@array/actions"
+			android:entries="@array/actions" android:summary="@string/touch_desc"
+			android:title="@string/touch_action" android:key="touch_actions" />
+	</PreferenceCategory>
 </PreferenceScreen>
