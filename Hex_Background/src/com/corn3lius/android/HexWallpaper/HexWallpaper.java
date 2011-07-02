@@ -178,8 +178,7 @@ public class HexWallpaper extends WallpaperService {
 			Log.i("onPref", "touch type = " + touch);
 
 			// set the sprite Count
-			String count = prefs.getString("sprite_count", "4");
-			hexLightCount = Integer.parseInt(count);
+			hexLightCount = prefs.getInt("sprite_count", 4);
 			Log.i("onPref", "count " + hexLightCount);
 
 		}

@@ -4,7 +4,7 @@ import com.corn3lius.android.HexWallpaper.R;
 
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.preference.PreferenceActivity;
+import android.preference.PreferenceActivity; 
 import android.util.Log;
 
 public class hexWallpaperSettings extends PreferenceActivity implements
@@ -37,3 +37,10 @@ public class hexWallpaperSettings extends PreferenceActivity implements
 		Log.i("sharedPref","here with " + key);
 	}
 }
+//
+//First, your preference activity should implement
+//> ColorPickerDialog.OnColorChangedListener
+//> Then add a PreferenceScreen and register setOnPreferenceClickListener to a
+//> function where you will do a new ColorPickerDialog().show().
+//> Finally, implement your colorChanged function where you will use your
+//> preference editor to commit the new color.

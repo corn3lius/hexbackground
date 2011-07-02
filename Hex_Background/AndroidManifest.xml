@@ -16,7 +16,9 @@
 
 		<activity android:name=".hexWallpaperSettings"
 			android:theme="@android:style/Theme.Light.WallpaperSettings"
-			android:exported="true" android:label="@string/settings_title"></activity>
+			android:exported="true" android:label="@string/settings_title">
+			
+			</activity>
 	</application>
 
 	<uses-sdk android:minSdkVersion="7"></uses-sdk>
