@@ -2,20 +2,10 @@
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
 	android:title="@string/hex_settings" android:key="hexsettings">
 	<PreferenceCategory android:title="Color">
+		<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+			android:title="Background Color" android:key="bg_color">
 
-		<EditTextPreference android:name="Red"
-			android:defaultValue="255" android:title="Red" android:key="color_red"
-			android:summary="0 - 255" />
-		<EditTextPreference android:name="Blue"
-			android:defaultValue="255" android:title="Blue" android:key="color_blue"
-			android:summary="0 - 255" />
-		<EditTextPreference android:name="Green"
-			android:defaultValue="255" android:title="Green" android:key="color_green"
-			android:summary="0 - 255" />
-		<EditTextPreference android:name="Alpha"
-			android:defaultValue="255" android:title="Alpha" android:key="color_alpha"
-			android:summary="0 - 255" />
-
+		</PreferenceScreen>
 	</PreferenceCategory>
 
 	<PreferenceCategory android:title="Background">
