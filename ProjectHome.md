@@ -1,0 +1,1 @@
+This is a android live wallpaper with a hexagon grid that has randomly lit hex that stream across the screen. Also the touched area lights up as the user browses their main views.
